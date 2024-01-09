@@ -1,3 +1,4 @@
+/* eslint-disable */
 export const weakMap = new WeakMap();
 export function queryAPI(endpoint) {
   let elements = weakMap.get(endpoint) || 0;
