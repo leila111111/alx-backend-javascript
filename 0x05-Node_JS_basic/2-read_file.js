@@ -6,7 +6,7 @@ function countStudents(datapath) {
     }
     const names = {};
     const fields = {};
-    const fileread = fs.readFileSync(path, 'utf8');
+    const fileread = fs.readFileSync(datapath, 'utf8');
     const filelines = fileread.toString().trim().split('\n');
     console.log(`Number of students: ${filelines.length - 1}`);
 
