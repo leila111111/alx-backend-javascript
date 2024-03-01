@@ -27,14 +27,14 @@ describe('api test', () => {
   });
 
   it('status 404 negative', (done) => {
-    request('http://localhost:7865/cart/-16', (err, res) => {
+    request('http://localhost:7865/cart/-16', (err, res, body) => {
       expect(res.statusCode).to.equal(404);
       done();
     });
   });
 
   it('correct response', (done) => {
-    request('http://localhost:7865/login', {json: {userName: 'samanta'}}, (err, res, body) => {
+    request.post('http://localhost:7865/login', {json: {userName: 'samanta'}}, (err, res, body) => {
       expect(res.statusCode).to.be.equal(200);
       expect(body).to.be.equal('Welcome samanta');
       done();
@@ -42,7 +42,7 @@ describe('api test', () => {
   });
 
   it('correct response available payments', (done) => {
-    request('http://localhost:7865/available_payments', (err, res, body) => {
+    request.get('http://localhost:7865/available_payments', (err, res, body) => {
       expect(res.statusCode).to.be.equal(200);
       expect(JSON.parse(body))
         .to.be.deep.equal({payment_methods: {credit_cards: true, paypal: false}});
