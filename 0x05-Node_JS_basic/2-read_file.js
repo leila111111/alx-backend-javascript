@@ -1,9 +1,9 @@
 const fs = require('fs');
 
 function countStudents(datapath) {
-    if (!fs.existsSync(dataPath)) {
-     throw new Error('Cannot load the database');
-    }
+  if (!fs.existsSync(dataPath)) {
+    throw new Error('Cannot load the database');
+  } else {
     const names = {};
     const fields = {};
     const fileread = fs.readFileSync(datapath, 'utf8');
@@ -22,6 +22,7 @@ function countStudents(datapath) {
       const str = names[key].join(', ');
       console.log(`Number of students in ${key}: ${val}. List: ${str}`);
     }
+ }
 }
 
 module.exports = countStudents;
